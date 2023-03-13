@@ -3,5 +3,8 @@
 
 ```
 npm install
+```
+
+```
 npm start
 ```
