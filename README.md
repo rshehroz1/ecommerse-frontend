@@ -6,6 +6,10 @@ npm install
 ```
 
 ```
+cd ecommerse-frontend
+```
+
+```
 npm star
 ```
 
