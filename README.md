@@ -8,5 +8,5 @@ npm install
 ```
 npm start
 ```
-<p>Uni brauzerda ko'rish uchun http://localhost:3000 ni
+<p>Uni brauzerda ko'rish uchun [http://localhost:3000](http://localhost:3000) ni
 oching.</p>
