@@ -1,9 +1,13 @@
 # Ecommerse Frontend
 <p>Ilovani ishga tushirish uchun qo'llanma</p>
 
-```npm install```
+```
+npm install
+```
 
-```npm star```
+```
+npm star
+```
 
 
 
