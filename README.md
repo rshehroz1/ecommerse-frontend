@@ -2,10 +2,10 @@
 <p>Ilovani ishga tushirish uchun qo'llanma</p>
 
 ###
-`npm install`
+```npm install```
 
 ###
-`npm start`
+```npm start```
 
 Uni brauzerda ko'rish uchun [http://localhost:3000](http://localhost:3000) ni
 oching.
