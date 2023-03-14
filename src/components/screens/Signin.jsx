@@ -17,7 +17,7 @@ export default function Signin() {
         </div>
         <button className="waves-effect waves-light btn #0d47a1 blue darken-3">Kirish</button>
         <p>
-          <Link to="/signup">Do not have an accaunt</Link>
+          <Link to="/signup">Do not have an accaunt?</Link>
         </p>
       </div>
     </div>
