@@ -18,4 +18,4 @@ npm star
 ### Uni brauzerda ko'rish uchun (http://localhost:3000) ni
 oching.
 
-Ecommerse backend qismi bu yerda
+<p>Ecommerse backend qismi bu yerda </p>
