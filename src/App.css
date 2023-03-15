@@ -64,3 +64,10 @@
   margin: 30px auto;
   padding: 20px;
 }
+
+.post_card{
+  margin: 10px auto;
+  max-width: 500px;
+  padding: 20px;
+  text-align: center;
+}

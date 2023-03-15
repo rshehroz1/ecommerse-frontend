@@ -9,6 +9,7 @@ export default function Navbar() {
         <li><Link to="/signin">Signin</Link></li>
         <li><Link to="signup">Signup</Link></li>
         <li><Link to="/profile">My profile</Link></li>
+        <li><Link to="/createpost">Maqola</Link></li>
       </ul>
     </div>
   </nav>
