@@ -22,3 +22,38 @@
   max-width: 400px;
   margin: 10px auto;
 }
+
+.profile{
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.profileMain{
+  display: flex;
+  justify-content: space-around;
+  margin: 20px auto;
+  border-bottom: 1px solid #555;
+}
+
+.profileImg{
+  width: 160px;
+  height: 160px;
+  border-radius: 80px;
+}
+
+.infoProfile{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.gallerey{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.gallerey .imgItem{
+  max-width: 350px;
+  margin-top: 10px;
+}
