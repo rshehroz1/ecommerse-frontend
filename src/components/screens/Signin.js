@@ -1,13 +1,21 @@
 // import { Link } from "react-router-dom"
 import { useState } from "react"
 import "./css/Signin.css"
+import M from "materialize-css"
+
 export default function Signin() {
   const [regName, setRegName] = useState("")
   const [regPasword, setRegPassword] = useState("")
   const [regEmail, setRegEmail] = useState("")
   const [clicked, setclicked] = useState(false)
 
+  // backend qismi
+
   const postData = ()=>{
+    if(!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(regEmail)){
+      M.toast({html: "Email manzilingizni to'gri kiriting", classes: "#c62828 red darken-3"})
+      return
+    }
     fetch("/signup", {
       method: "post",
       headers: {
@@ -20,7 +28,12 @@ export default function Signin() {
       })
     }).then(res=>res.json())
     .then(data =>{
-      console.log(data);
+      if(data.error){
+        M.toast({html: data.error, classes: "#c62828 red darken-3"})
+      }else{
+        M.toast({html: data.msg, classes: "#2e7d32 green darken-3"})
+        setclicked(!clicked)
+      }
     })
   }
 
