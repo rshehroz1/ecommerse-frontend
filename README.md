@@ -18,4 +18,4 @@ npm star
 ### Uni brauzerda ko'rish uchun (http://localhost:3000) ni
 oching.
 
- Api qismi bu yerda <a href="https://github.com/rshehroz1/ecommerse-api">ecommerse-api</a>
+<p>Api qismi bu yerda <a href="https://github.com/rshehroz1/ecommerse-api">ecommerse-api</a></p>
