@@ -2,6 +2,9 @@
 import { useState } from "react"
 import "./css/Signin.css"
 export default function Signin() {
+  const [regName, setRegName] = useState("")
+  const [regPasword, setRegPassword] = useState("")
+  const [regEmail, setRegEmail] = useState("")
   const [clicked, setclicked] = useState(false)
 
   return(
@@ -14,11 +17,12 @@ export default function Signin() {
           <div className="formBx">
             <form>
               <h2>Sign In</h2>
-              <input type="text" name="" placeholder="Username" />
-              <input type="password" name="" placeholder="Password" />
-              <input type="submit" name="" value="Login" />
+              <input type="text" value={regName} placeholder="Username" onChange={(e)=> setRegName(e.target.value)}/>
+              <input type="password" value={regEmail} placeholder="Password" onChange={(e)=> setRegEmail(e.target.value)}/>
+              <input type="submit" value={regPasword} onChange={(e)=> setRegPassword(e.target.value)}/>
               <p className="signup">
                 Don't have an account ?
+                {/* eslint-disable-line */}
                 <a href="#" onClick={()=> setclicked(!clicked)}>
                   Sign Up
                 </a>
@@ -37,37 +41,15 @@ export default function Signin() {
               <input type="submit" name="" value="Sign Up" />
               <p className="signup">
                 Already have an account ?
+                {/* eslint-disable-line */}
                 <a href="#" onClick={()=> setclicked(!clicked)}> Sign In </a>
               </p>
             </form>
           </div>
-          <div className="imgBx"><img src="https://images.unsplash.com/photo-1628972799193-1a6be77e183e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80" /></div>
+          <div className="imgBx"><img alt="signin" src="https://images.unsplash.com/photo-1628972799193-1a6be77e183e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80" /></div>
         </div>
       </div>
     </section>
- 
   </body>
   )
-
-  // return (
-  //   <div classNameNameName="mycard">
-  //     <div classNameNameName="card card_auth">
-  //     <h2>Uzbegram</h2>
-  //     <div classNameNameName="input-field col s6">
-  //         <i classNameNameName="material-icons prefix">email</i>
-  //         <input id="icon_prefix" type="text" classNameNameName="validate" />
-  //         <label for="icon_prefix">Email manzil kirgizing</label>
-  //       </div>
-  //     <div classNameNameName="input-field col s6">
-  //         <i classNameNameName="material-icons prefix">password</i>
-  //         <input id="icon_prefix" type="text" classNameNameName="validate" />
-  //         <label for="icon_prefix">Parol kiriting</label>
-  //       </div>
-  //       <button classNameNameName="waves-effect waves-light btn #0d47a1 blue darken-3">Kirish</button>
-  //       <p>
-  //         <Link to="/signup">Do not have an accaunt?</Link>
-  //       </p>
-  //     </div>
-  //   </div>
-  // )
 }
