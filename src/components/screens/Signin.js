@@ -7,8 +7,25 @@ export default function Signin() {
   const [regEmail, setRegEmail] = useState("")
   const [clicked, setclicked] = useState(false)
 
+  const postData = ()=>{
+    fetch("/signup", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        name: regName,
+        password: regPasword,
+        email: regEmail
+      })
+    }).then(res=>res.json())
+    .then(data =>{
+      console.log(data);
+    })
+  }
+
   return(
-    <body>
+    <>
     <section>
       <div className={clicked ? "container active" : "container"}>
         <div className="user signinBx">
@@ -17,14 +34,14 @@ export default function Signin() {
           <div className="formBx">
             <form>
               <h2>Sign In</h2>
-              <input type="text" value={regName} placeholder="Username" onChange={(e)=> setRegName(e.target.value)}/>
-              <input type="password" value={regEmail} placeholder="Password" onChange={(e)=> setRegEmail(e.target.value)}/>
-              <input type="submit" value={regPasword} onChange={(e)=> setRegPassword(e.target.value)}/>
+              <input type="text" placeholder="Username"/>
+              <input type="password" placeholder="Password"/>
+              <input type="submit" placeholder="Submit"/>
               <p className="signup">
                 Don't have an account ?
                 {/* eslint-disable-line */}
                 <a href="#" onClick={()=> setclicked(!clicked)}>
-                  Sign Up
+                  login
                 </a>
               </p>
             </form>
@@ -34,11 +51,10 @@ export default function Signin() {
           <div className="formBx">
             <form>
               <h2>Create an Account</h2>
-              <input type="text" name="" placeholder="Username" />
-              <input type="email" name="" placeholder="Email Id" />
-              <input type="password" name="" placeholder="Create Password" />
-              <input type="password" name="" placeholder="Confirm Password" />
-              <input type="submit" name="" value="Sign Up" />
+              <input type="text"  placeholder="Username" value={regName}  onChange={(e)=> setRegName(e.target.value)}/>
+              <input type="email"  placeholder="Email Id" value={regEmail}  onChange={(e)=> setRegEmail(e.target.value)}/>
+              <input type="password"  placeholder="Create Password" value={regPasword} onChange={(e)=> setRegPassword(e.target.value)}/>
+              <input type="submit" onClick={()=> postData()} value="Sign Up" />
               <p className="signup">
                 Already have an account ?
                 {/* eslint-disable-line */}
@@ -50,6 +66,6 @@ export default function Signin() {
         </div>
       </div>
     </section>
-  </body>
+  </>
   )
 }
