@@ -1,12 +1,16 @@
 // import { Link } from "react-router-dom"
 import { useState } from "react"
+import { useHistory } from "react-router-dom";
 import "./css/Signin.css"
 import M from "materialize-css"
 
 export default function Signin() {
+  const history = useHistory()
   const [regName, setRegName] = useState("")
   const [regPasword, setRegPassword] = useState("")
   const [regEmail, setRegEmail] = useState("")
+  const [logEmail, setLogEmail] = useState("")
+  const [logPassword, setLogPassword] = useState("")
   const [clicked, setclicked] = useState(false)
 
   // backend qismi
@@ -37,6 +41,31 @@ export default function Signin() {
     })
   }
 
+  const LogData = ()=>{
+    if(!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(regEmail)){
+      M.toast({html: "Email manzilingizni to'gri kiriting", classes: "#c62828 red darken-3"})
+      return
+    }
+    fetch("/signin", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        password: logPassword,
+        email: logEmail
+      })
+    }).then(res=>res.json())
+    .then(data =>{
+      if(data.error){
+        M.toast({html: data.error, classes: "#c62828 red darken-3"})
+      }else{
+        M.toast({html: "Siz muvaffaqiyatli kirdingiz", classes: "#2e7d32 green darken-3"})
+        history.push("/")
+      }
+    })
+  }
+
   return(
     <>
     <section>
@@ -46,10 +75,10 @@ export default function Signin() {
             <img src="https://images.unsplash.com/photo-1576859958081-27de5c70262a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80" alt="rasim"/></div>
           <div className="formBx">
             <form>
-              <h2>Sign In</h2>
-              <input type="text" placeholder="Username"/>
-              <input type="password" placeholder="Password"/>
-              <input type="submit" placeholder="Submit"/>
+              <h2>Kirish</h2>
+              <input type="email" onChange={(e)=> setLogEmail(e.target.value)} value={logEmail} placeholder="Email manzilingiz" />
+              <input type="password" onChange={(e)=> setLogPassword(e.target.value)} value={logPassword} placeholder="Password"/>
+              <button className="btn" onClick={()=> LogData()}>Profilga kirish</button>
               <p className="signup">
                 Don't have an account ?
                 {/* eslint-disable-line */}
