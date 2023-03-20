@@ -10,7 +10,7 @@ cd ecommerse-frontend
 ```
 
 ```
-npm star
+npm start
 ```
 
 
