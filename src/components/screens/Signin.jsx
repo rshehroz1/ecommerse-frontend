@@ -16,6 +16,7 @@ export default function Signin() {
   // backend qismi
 
   const postData = ()=>{
+    {/* eslint-disable-next-line */}
     if(!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(regEmail)){
       M.toast({html: "Email manzilingizni to'gri kiriting", classes: "#c62828 red darken-3"})
       return
@@ -42,6 +43,7 @@ export default function Signin() {
   }
 
   const LogData = ()=>{
+    {/* eslint-disable-next-line */}
     if(!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(regEmail)){
       M.toast({html: "Email manzilingizni to'gri kiriting", classes: "#c62828 red darken-3"})
       return
@@ -81,7 +83,7 @@ export default function Signin() {
               <button className="btn" onClick={()=> LogData()}>Profilga kirish</button>
               <p className="signup">
                 Don't have an account ?
-                {/* eslint-disable-line */}
+                {/* eslint-disable-next-line */}
                 <a href="#" onClick={()=> setclicked(!clicked)}>
                   login
                 </a>
@@ -99,7 +101,7 @@ export default function Signin() {
               <input type="submit" onClick={()=> postData()} value="Sign Up" />
               <p className="signup">
                 Already have an account ?
-                {/* eslint-disable-line */}
+                {/* eslint-disable-next-line */}
                 <a href="#" onClick={()=> setclicked(!clicked)}> Sign In </a>
               </p>
             </form>
