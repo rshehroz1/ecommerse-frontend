@@ -3,11 +3,22 @@ import { useState } from "react"
 export default function CreatePost() {
   const [title, setTitile] = useState("")
   const [body, setBody] = useState("")
-  const [img, setImg] = useState("")
+  const [image, setImage] = useState("")
 
-  // const postFetails =()=>{
-
-  // }
+  const postDetails =()=>{
+    const data = new FormData()
+    data.append("file", image)
+    data.append("upload_preset", "uzbekgram")
+    data.append("cloud_name", "dbdxtbymy")
+    fetch("https://api.cloudinary.com/v1_1/dbdxtbymy/image/upload", {
+      method: "post",
+      body: data
+    }).then(res=>res.json())
+    .then(data=> console.log(data))
+    .catch(err => {
+      console.log(err);
+    })
+  }
   return (
     <div className="card cardPost">
         <div className="card-image">
@@ -29,13 +40,13 @@ export default function CreatePost() {
         <div class="file-field input-field">
       <div class="btn">
         <span><i className="material-icons">add</i></span>
-        <input type="file" onChange={(e)=>setImg(e.target.files[0])}/>
+        <input type="file" onChange={(e)=>setImage(e.target.files[0])}/>
       </div>
       <div class="file-path-wrapper">
         <input class="file-path validate" type="text" placeholder="Rasimingizni joylang" />
       </div>
     </div>
-        <button className="btn">
+        <button className="btn" onClick={()=> postDetails}>
           Maqola qo'shish
         </button>
 
