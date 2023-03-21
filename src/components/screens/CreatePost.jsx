@@ -1,9 +1,14 @@
 import { useState } from "react"
+import M from "materialize-css"
+import { useHistory } from "react-router-dom";
 
 export default function CreatePost() {
+  const history = useHistory()
   const [title, setTitile] = useState("")
   const [body, setBody] = useState("")
   const [image, setImage] = useState("")
+  const [url, setUrl] = useState("")
+  
 
   const postDetails =()=>{
     const data = new FormData()
@@ -16,7 +21,28 @@ export default function CreatePost() {
     }).then(res=>res.json())
     .then(data=> console.log(data))
     .catch(err => {
+      setUrl(data.url)
       console.log(err);
+    })
+
+    fetch("http://localhost:3000/createpost", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        title,
+        body,
+        pic: url,
+      }) 
+    }).then(res=>res.json())
+    .then(data =>{
+      if(data.error){
+        M.toast({html: data.error, classes: "#c62828 red darken-3"})
+      }else{
+        M.toast({html: data.msg, classes: "#2e7d32 green darken-3"})
+        history.push("/")
+      }
     })
   }
   return (
@@ -46,7 +72,7 @@ export default function CreatePost() {
         <input class="file-path validate" type="text" placeholder="Rasimingizni joylang" />
       </div>
     </div>
-        <button className="btn" onClick={()=> postDetails}>
+        <button className="btn" onClick={()=> postDetails()}>
           Maqola qo'shish
         </button>
 
